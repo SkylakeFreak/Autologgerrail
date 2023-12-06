@@ -16,11 +16,11 @@ app.get('/', async (req, res) => {
 
   try {
     // Replace with your actual login URL
-    await page.goto('http://10.0.0.12:8090/httpclient.html');
+    await page.goto('here replace it');
 
     // Replace 'username' and 'password' with the actual input field names
-    await page.type('[name="username"]', '210305105194');
-    await page.type('[name="password"]', 'db@11');
+    await page.type('[name="username"]', 'your username');
+    await page.type('[name="password"]', 'your password');
 
     // Replace 'login_button_selector' with the actual selector for the login button
     await page.waitForSelector('#loginbutton');
