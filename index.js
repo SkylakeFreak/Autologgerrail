@@ -1,17 +1,13 @@
-// server.js
 const express = require('express');
-const dotenv = require("dotenv");
-
-dotenv.config();
+const dotenv = require('dotenv');
 const { chromium } = require('playwright');
 const cors = require('cors');
 
-// Enable CORS for all routes
+dotenv.config();
 
 const app = express();
-const port = 5000; 
+const port = process.env.PORT || 5000; // Use the environment variable or default to 5000
 app.use(cors());
-
 
 app.get('/', async (req, res) => {
   const browser = await chromium.launch();
@@ -29,7 +25,6 @@ app.get('/', async (req, res) => {
     // Replace 'login_button_selector' with the actual selector for the login button
     await page.waitForSelector('#loginbutton');
     await page.click('#loginbutton');
-
 
     // Wait for a bit to allow the login to complete (adjust as needed)
     await page.waitForTimeout(5000);
